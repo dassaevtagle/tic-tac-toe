@@ -1,0 +1,99 @@
+:root {
+    --bg-color: #5ecc4f;
+  }
+
+/* Places of the X's and O's */
+button{
+    background-color: var(--bg-color) ; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    width:95%; height:95%;
+}
+/* Doesn't work :( */
+@media (min-width: 800px) {
+    #tic-tac-toe-grid{
+        height: 10vw;
+        width: 10vw;
+        background: var(--bg-color);
+        display: inline-block;
+        text-align: center;
+        line-height: 25vw;
+        font-size: 20vw;
+        margin-right: -4px;
+        position: relative; 
+    }
+}
+
+
+
+/* Game grid */
+
+.box {
+  height: 25vw;
+  width: 25vw;
+  background: var(--bg-color);
+  display: inline-block;
+  text-align: center;
+  line-height: 25vw;
+  font-size: 20vw;
+  position: relative;
+}
+
+/****************** Thesse are the borders of the tic tac toe template ******************/
+.b1{
+    border-bottom: 7px solid white;
+    border-right: 7px solid white;
+}
+
+.b2{
+    border-bottom: 7px solid white;
+    border-right: 7px solid white;
+    border-left: 7px solid white;
+}
+
+.b3{
+    border-bottom: 7px solid white;
+    border-left: 7px solid white;
+}
+
+.b4{
+    border-bottom: 7px solid white;
+    border-top: 7px solid white;
+    border-right: 7px solid white;
+}
+
+.b5{
+    border-bottom: 7px solid white;
+    border-top: 7px solid white;
+    border-right: 7px solid white;
+    border-left: 7px solid white;
+}
+
+.b6{
+    border-bottom: 7px solid white;
+    border-top: 7px solid white;
+    border-left: 7px solid white;
+}
+.b7{
+    border-top: 7px solid white;
+    border-right: 7px solid white;
+}
+.b8{
+    border-top: 7px solid white;
+    border-right: 7px solid white;
+    border-left: 7px solid white;
+
+}
+.b9{
+    border-top: 7px solid white;
+    border-left: 7px solid white;
+}
+
+/*Name of the players*/
+.players{
+    font-size: 8vw;
+    padding: 10px 0px;
+
+}
