@@ -83,10 +83,10 @@ button{
 /* Phone */
 @media screen and (max-width: 500px) {
     .game {
-        width: 70vw;
-        height: 50vh;
+        width: 90vw;
+        height: 60vh;
         display: grid;
-        grid-template-columns: 15% auto 15%;
+        grid-template-columns: 7% auto 7%;
         }
 
         .players{
