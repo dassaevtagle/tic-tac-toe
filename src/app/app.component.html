@@ -1,43 +1,70 @@
-<div class="container text-center text-dark players">
-  {{playerOne}} [ {{victoriesPlayerOne | convertToRoman}} ]
+<header>
+        <nav class="navbar">
+                <a class="navbar-brand" style="width: 5vw;">
+                <i class="fa fa-cube" aria-hidden="true"></i>
+                  Tic-Tac-Toe
+                </a>
+
+      
+        </nav>
+</header>
+
+<div class="game">
+
+        <div class="game-board-container">
+               
+                <div class="game-board">
+
+                        <div class="box b1">
+                                <button type="button"  (click)="squareClicked('b1')" >{{squaresMapping.get('b1')}}</button>
+                        </div>
+                        <div class="box b2">
+                                <button type="button"  (click)="squareClicked('b2')">{{squaresMapping.get('b2')}}</button>
+                        </div>
+                        <div class="box b3">
+                                <button type="button" (click)="squareClicked('b3')">{{squaresMapping.get('b3')}}</button>
+                        </div>
+                        <div class="box b4">
+                                <button type="button" (click)="squareClicked('b4')">{{squaresMapping.get('b4')}}</button>
+                        </div>
+                        <div class="box b5">
+                                <button type="button" (click)="squareClicked('b5')">{{squaresMapping.get('b5')}}</button>
+                        </div>
+                        <div class="box b6">
+                                <button type="button" (click)="squareClicked('b6')">{{squaresMapping.get('b6')}}</button>
+                        </div>
+                        <div class="box b7">
+                                <button type="button" (click)="squareClicked('b7')">{{squaresMapping.get('b7')}}</button>
+                        </div>
+                        <div class="box b8">
+                                <button type="button" (click)="squareClicked('b8')" >{{squaresMapping.get('b8')}}</button>
+                        </div>
+                        <div class="box b9">
+                                <button type="button" (click)="squareClicked('b9')">{{squaresMapping.get('b9')}}</button>
+                        </div>  
+                </div>
+        </div>
+
+        
+
 </div>
 
-<div class="container" id="tic-tact-toe-grid">
-  <div class="row">
-          <div class="box b1 col">
-                  <button type="button"  (click)="squareClicked('b1')" >{{squaresMapping.get('b1')}}</button>
-          </div>
-          <div class="box b2 col">
-                  <button type="button"  (click)="squareClicked('b2')">{{squaresMapping.get('b2')}}</button>
-          </div>
-          <div class="box b3 col">
-                  <button type="button" (click)="squareClicked('b3')">{{squaresMapping.get('b3')}}</button>
-          </div>
-  </div>
-  <div class="row">
-          <div class="box b4 col">
-                  <button type="button" (click)="squareClicked('b4')">{{squaresMapping.get('b4')}}</button>
-          </div>
-          <div class="box b5 col">
-                  <button type="button" (click)="squareClicked('b5')">{{squaresMapping.get('b5')}}</button>
-          </div>
-          <div class="box b6 col">
-                  <button type="button" (click)="squareClicked('b6')">{{squaresMapping.get('b6')}}</button>
-          </div>
-  </div>
-  <div class="row">
-      <div class="box b7 col">
-              <button type="button" (click)="squareClicked('b7')">{{squaresMapping.get('b7')}}</button>
-      </div>
-      <div class="box b8 col">
-              <button type="button" (click)="squareClicked('b8')" >{{squaresMapping.get('b8')}}</button>
-      </div>
-      <div class="box b9 col">
-              <button type="button" (click)="squareClicked('b9')">{{squaresMapping.get('b9')}}</button>
-      </div>  
-  </div>  
+<div class="container text-center players " style="padding-right: 3vw;">
+        
+        <a class="player-one" (click)='changePlayerNames(1)' title="Change your name!">{{playerOne}}</a> &nbsp;  | &nbsp;  <a class="player-one" (click)='changePlayerNames(2)' title="Change your name!">{{playerTwo}}</a>   
+       
 </div>
 
-<div class="container text-center text-dark players ">
-  {{playerTwo}} [ {{victoriesPlayerTwo | convertToRoman}} ] 
+<div class="container score">
+                <div class="text-right score-player-one">
+                {{victoriesPlayerOne | convertToRoman}}
+                </div>
+                <div class="score-player-two">
+                {{victoriesPlayerTwo | convertToRoman}}
+                </div>
 </div>
+
+
+<footer>
+        <a id='footer-link' target='_blank' href='https://github.com/dassaevtagle'>Created by Dassaev Tagle &nbsp;  </a>
+</footer>

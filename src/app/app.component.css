@@ -1,99 +1,229 @@
 :root {
     --bg-color: #5ecc4f;
+    --font-color: rgb(52, 58, 64);
   }
+
+
+
+.navbar{
+    color: var(--font-color);
+}
+
+header{
+    background-color: var(--bg-color);
+}
+
+.button-header{
+    background-color: var(--bg-color);
+}
+
+/* switch toggle */
+
+
 
 /* Places of the X's and O's */
 button{
     background-color: var(--bg-color) ; 
     border: none;
-    color: white;
+    color: var(--font-color);
     text-align: center;
     text-decoration: none;
     width:95%; height:95%;
 }
-/* Doesn't work :( */
-@media (min-width: 800px) {
-    #tic-tac-toe-grid{
-        height: 10vw;
-        width: 10vw;
-        background: var(--bg-color);
-        display: inline-block;
-        text-align: center;
-        line-height: 25vw;
-        font-size: 20vw;
-        margin-right: -4px;
-        position: relative; 
+
+/* Desktop */
+@media screen and (min-width: 980px) {
+    .game {
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 35% auto 35%;
     }
+
+    .players{
+        font-size: 2vw;
+    }
+
+    .score{
+        font-size: 3vw;
+    }
+    
+    .edit-button{
+        float: right;
+        font-size: 2vw;
+    }
+    
 }
 
+/* Tablet */
+@media screen and (max-width: 985px) {
+    .game {
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 27% auto 27%;
+    }
 
+    .players{
+        font-size: 2vw;
+    }
+
+    .score{
+        font-size: 3vw;
+    }
+
+    .edit-button{
+        float: right;
+        font-size: 2vw;
+    }
+    
+
+}
+
+/* Phone */
+@media screen and (max-width: 500px) {
+    .game {
+        width: 100vw;
+        height: 60vh;
+        display: grid;
+        grid-template-columns: 7% auto 7%;
+        }
+
+        .players{
+            font-size: 7vw;
+        }
+
+        .score{
+            font-size: 9vw;
+        }
+        .edit-button{
+            float: right;
+            font-size: 5vw;
+        }
+        
+  }
+
+.game{
+    margin-top: 3%;
+}
 
 /* Game grid */
+.game-board-container{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.game-board{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    width: 99%;
+    height: 99%;
+}
 
 .box {
-  height: 25vw;
-  width: 25vw;
-  background: var(--bg-color);
-  display: inline-block;
-  text-align: center;
-  line-height: 25vw;
-  font-size: 20vw;
-  position: relative;
+    font-weight: bold;
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
 }
 
 /****************** Thesse are the borders of the tic tac toe template ******************/
 .b1{
-    border-bottom: 7px solid white;
-    border-right: 7px solid white;
+    border-bottom: 7px;
+    border-bottom-style: solid;
+    border-bottom-color: var(--font-color);
+    border-right: 7px;
+    border-right-style: solid;
+    border-right-color: var(--font-color);
 }
 
 .b2{
-    border-bottom: 7px solid white;
-    border-right: 7px solid white;
-    border-left: 7px solid white;
+    border-bottom: 7px solid var(--font-color);
+    border-right: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
 }
 
 .b3{
-    border-bottom: 7px solid white;
-    border-left: 7px solid white;
+    border-bottom: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
 }
 
 .b4{
-    border-bottom: 7px solid white;
-    border-top: 7px solid white;
-    border-right: 7px solid white;
+    border-bottom: 7px solid var(--font-color);
+    border-top: 7px solid var(--font-color);
+    border-right: 7px solid var(--font-color);
 }
 
 .b5{
-    border-bottom: 7px solid white;
-    border-top: 7px solid white;
-    border-right: 7px solid white;
-    border-left: 7px solid white;
+    border-bottom: 7px solid var(--font-color);
+    border-top: 7px solid var(--font-color);
+    border-right: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
 }
 
 .b6{
-    border-bottom: 7px solid white;
-    border-top: 7px solid white;
-    border-left: 7px solid white;
+    border-bottom: 7px solid var(--font-color);
+    border-top: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
 }
 .b7{
-    border-top: 7px solid white;
-    border-right: 7px solid white;
+    border-top: 7px solid var(--font-color);
+    border-right: 7px solid var(--font-color);
 }
 .b8{
-    border-top: 7px solid white;
-    border-right: 7px solid white;
-    border-left: 7px solid white;
+    border-top: 7px solid var(--font-color);
+    border-right: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
+    
 
 }
 .b9{
-    border-top: 7px solid white;
-    border-left: 7px solid white;
+    border-top: 7px solid var(--font-color);
+    border-left: 7px solid var(--font-color);
 }
 
-/*Name of the players*/
-.players{
-    font-size: 8vw;
-    padding: 10px 0px;
 
+
+input{
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    width: inherit;
+}
+
+
+.players{
+    margin-top: 20px;
+}
+
+.player-one .player-two:hover{
+        cursor: pointer;
+}
+
+.score{
+    width: 100%;
+}
+.score-player-one{
+    width: 43%;
+    float: left;
+}
+.score-player-two{
+    width: 45%;
+    float: right;
+}
+
+footer{
+    text-align: center;
+    position: fixed;
+    font-size: 14px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+}
+
+#footer-link, #footer-link:link, #footer-link:visited, #footer-link:hover {
+    text-decoration: none;
+    color: gainsboro;
 }

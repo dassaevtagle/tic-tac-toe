@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -27,18 +28,56 @@ export class AppComponent {
   // This Map will have the square values
   squaresMapping: Map<string, string> = new Map<string, string>();
 
-  alertWhoIsFirst(): void {
+  alertWhoIsFirst(): boolean {
     switch (this.firstTurn){
       case true: {
-        alert(`${this.playerOne} starts`);
+        return true;
         break;
       }
       case false: {
-        alert(`${this.playerTwo} starts`);
+        return false;
         break;
       }
     }
   }
+
+  async changePlayerNames(player: number): Promise<void> {
+    
+    var playerName;
+    switch(player){
+      case 1: 
+      playerName = `${this.playerOne}`;
+      break;
+
+      case 2:
+        playerName = `${this.playerTwo}`;
+    }
+
+    const { value: newName } = await Swal.fire({
+      title: 'Enter your name',
+      input: 'text',
+      inputValue: playerName,
+      showCancelButton: true,
+      inputValidator: (value) => {
+        if (!value) {
+          return 'You need to write something!'
+        }
+        else{
+          switch(player){
+            case 1: 
+            this.playerOne = value;
+            break;
+      
+            case 2:
+              this.playerTwo = value;
+          }
+        }
+      }
+    })
+  } 
+
+
+  
 
   playerWins(playerSquares: string[]): boolean {
       
@@ -92,19 +131,67 @@ export class AppComponent {
 
     //alerts if somebody wins and reset the board
     if(this.playerWins(this.playerOneSquares)) {
-      alert(`${this.playerOne} wins!`);
+      
+
+      switch (this.alertWhoIsFirst()) {
+        case true: {
+          Swal.fire({
+            title: `${this.playerOne} won!`,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerOne} starts now`, '', 'info')}
+          })
+          break;
+        }
+        case false: {
+          Swal.fire({
+            title: `${this.playerOne} won!`,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerTwo} starts now`, '', 'info')}
+          })
+          break;
+        }
+      }
+      
       this.squaresMapping.clear();
       this.playerOneSquares = [];
       this.playerTwoSquares = [];
       this.firstTurn = !this.firstTurn //the other player starts now
       this.turn = this.firstTurn;
       this.victoriesPlayerOne ++;
-      this.alertWhoIsFirst();
-      
     }
 
     else if(this.playerWins(this.playerTwoSquares)){
-      alert(`${this.playerTwo} wins!`);
+      
+      switch (this.alertWhoIsFirst()) {
+        case true: {
+          Swal.fire({
+            title: `${this.playerTwo} won!`,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerOne} starts now`, '', 'info')}
+          })
+          break;
+        }
+        case false: {
+          Swal.fire({
+            title: `${this.playerTwo} won!`,
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerTwo} starts now`,'','info')}
+          })
+          break;
+        }
+      }
       this.squaresMapping.clear();
       this.turn = true;
       this.playerOneSquares = [];
@@ -112,19 +199,51 @@ export class AppComponent {
       this.firstTurn = !this.firstTurn //the other player starts now
       this.turn = this.firstTurn;
       this.victoriesPlayerTwo ++;
-      this.alertWhoIsFirst();
-      
     }
 
+    // Clear the board if there is a draw
+    else if(this.squaresMapping.size == 9){
+      switch (this.alertWhoIsFirst()) {
+        case true: {
+          Swal.fire({
+            title: `It's a draw`,
+            icon: 'info',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerOne} starts now`, '', 'info')}
+          })
+          break;
+        }
+        case false: {
+          Swal.fire({
+            title: `It's a draw`,
+            icon: 'info',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'New round'
+          }).then((result) => {
+            if (result.value) {Swal.fire(`${this.playerTwo} starts now`,'','info')}
+          })
+          break;
+        }
+      }
+      this.squaresMapping.clear();
+      this.turn = true;
+      this.playerOneSquares = [];
+      this.playerTwoSquares = [];
+      this.firstTurn = !this.firstTurn //the other player starts now
+      this.turn = this.firstTurn;
+      
+    }
   }
 
 
   
 
   ngOnInit(): void{
-    this.playerOne = 'Player One';
-    this.playerTwo = 'Player Two';
-    alert(`${this.playerOne} starts!`);
+    this.playerOne = 'Player 1';
+    this.playerTwo = 'Player 2';
+    Swal.fire(`${this.playerOne} starts!`);
   }
 
 }
