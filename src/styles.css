@@ -3,8 +3,8 @@
 
 
 :root {
-    --bg-color: #5ecc4f;
-    --font-color: rgb(52, 58, 64);
+    --bg-color:  rgb(52, 58, 64);
+    --font-color: white;
 }
 *{  
     font-family: 'Londrina Solid', sans-serif ;

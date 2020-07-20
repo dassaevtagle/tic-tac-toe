@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #5ecc4f;
-    --font-color: rgb(52, 58, 64);
+    --bg-color:  rgb(52, 58, 64);
+    --font-color: white;
   }
 
 
@@ -83,8 +83,8 @@ button{
 /* Phone */
 @media screen and (max-width: 500px) {
     .game {
-        width: 100vw;
-        height: 60vh;
+        width: 90vw;
+        height: 50vh;
         display: grid;
         grid-template-columns: 7% auto 7%;
         }
