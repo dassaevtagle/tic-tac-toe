@@ -83,7 +83,7 @@ button{
 /* Phone */
 @media screen and (max-width: 500px) {
     .game {
-        width: 60vw;
+        width: 40vw;
         height: 40vh;
         display: grid;
         grid-template-columns: 7% auto 7%;
